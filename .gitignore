@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# C/C++ build artifacts
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# common compiled binaries
+topN
+topn
+a.out
+
+# build directories
+build/
+bin/
+dist/
+out/
+*.egg-info/
+
+# temp / local development
+tmp/
+temp/
+dev/
+
+# logs
+*.log
+
+# editor / IDE
+.vscode/
+.idea/
+
+# Python cache if you use helper scripts
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# test outputs or local test working files
+test_output/
+*.tmp
+
+# optional: ignore large local test data
+test_data/
+
+# optional: ignore a local scratch test folder
+test/
