@@ -10,7 +10,6 @@
 
 // Program-wide constants
 constexpr int MAX_SEQUENCE_NAME = 64;
-constexpr int MAX_SEQUENCE_COMMENT = 128;
 constexpr int DEFAULT_KMER_SIZE = 2;
 constexpr int DEFAULT_TOP_N = 50;
 constexpr float DEFAULT_PREFILTER_SAFETY_MARGIN = 1.5f;
@@ -22,12 +21,11 @@ constexpr float DEFAULT_LOWER_THRESHOLD = 0.05f;
 // Core data structures
 struct Sequence {
     std::string name;
-    std::string comment;
     std::string sequence;
     
     Sequence() = default;
-    Sequence(const std::string& n, const std::string& c, const std::string& s)
-        : name(n), comment(c), sequence(s) {}
+    Sequence(const std::string& n, const std::string& s)
+        : name(n), sequence(s) {}
 };
 
 // Program configuration
@@ -53,7 +51,6 @@ struct ProgramConfig {
     float prefilterSafetyMargin = DEFAULT_PREFILTER_SAFETY_MARGIN;
     float prefilterTieCap = DEFAULT_PREFILTER_TIE_CAP;
     float minHitScore = DEFAULT_MIN_HIT_SCORE; // minimum NW similarity (%)
-    bool showAlignment = false;
     
     // Program behavior
     bool verbose = false;
@@ -73,21 +70,6 @@ struct ProgramConfig {
                                                    static_cast<double>(prefilterTieCap))));
     }
 };
-
-// Result structures
-struct AlignmentResult {
-    std::string queryName;
-    std::string targetName;
-    float score;
-    float identity;
-    int alignmentLength;
-    
-    // Optional alignment visualization
-    std::string alignedQuery;
-    std::string alignedTarget;
-};
-
-using AlignmentResults = std::vector<AlignmentResult>;
 
 // Default BLOSUM62 matrix as a string
 inline const std::string& getDefaultBLOSUM62Matrix() {

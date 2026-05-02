@@ -7,7 +7,6 @@
 struct Candidate {
     std::string targetName;
     double fastpScore;
-    std::string alignedSegment;
 };
 
 using CandidateList = std::vector<Candidate>;

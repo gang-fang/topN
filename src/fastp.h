@@ -3,28 +3,7 @@
 
 #include "candidate.h"  // Access Candidate and CandidateList
 #include "config.h"     // For Sequence and ProgramConfig structs
-#include <string>
 #include <vector>
-#include <unordered_map>
-
-/**
- * @brief Computes a fast prefilter score between query and target protein sequences.
- *
- * For each k-mer in the query, the function checks if an exact k-mer match appears in the target.
- * If so, a bonus is added to the score. Uses HSP scoring, normalized by sequence length.
- *
- * @param query The query protein sequence.
- * @param target The target protein sequence.
- * @param config Configuration settings (e.g., k-mer size, lower threshold).
- * @param aminoAcids The amino acid symbols corresponding to the matrix.
- * @param alignedSegment Optional pointer to store the aligned segment.
- * @return A float value representing the computed similarity.
- */
-float computeFastpScore(const Sequence& query,
-                        const Sequence& target,
-                        const ProgramConfig& config,
-                        const std::vector<char>& aminoAcids,
-                        std::string* alignedSegment = nullptr);
 
 /**
  * @brief Runs the FASTP prefilter on a set of query and database sequences.

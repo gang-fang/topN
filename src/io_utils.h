@@ -5,6 +5,7 @@
 #include <vector>
 #include <memory>
 #include <fstream>
+#include <stdexcept>
 #include "config.h"
 
 namespace io {
@@ -19,7 +20,7 @@ public:
 };
 
 /**
- * @brief Class to handle FASTA format reading and writing
+ * @brief Class to handle FASTA format reading
  */
 class FastaReader {
 public:
@@ -41,34 +42,8 @@ private:
     
     // Helper functions
     std::string readSequenceName();
-    std::string readSequenceComment();
     std::string readSequenceData();
 };
-
-/**
- * @brief Class to write FASTA format
- */
-class FastaWriter {
-public:
-    explicit FastaWriter(const std::string& filename);
-    ~FastaWriter();
-
-    // Write a single sequence
-    void writeSequence(const Sequence& seq, int lineWidth = 60);
-    
-    // Write multiple sequences
-    void writeSequences(const std::vector<Sequence>& sequences, int lineWidth = 60);
-    
-    // Write alignment results
-    void writeResults(const AlignmentResults& results, bool includeAlignment = false);
-
-private:
-    std::ofstream file;
-    void writeSequenceLine(const std::string& seq, int lineWidth);
-};
-
-// Utility functions
-std::string trimWhitespace(const std::string& str);
 
 } // namespace io
 
