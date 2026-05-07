@@ -4,4 +4,4 @@ topN identifies the top N most similar proteins to a query protein from a comple
 
 topN is part of the *Protein Degree Centrality (ProtDC)* package, which provides tools and data for a function-oriented protein similarity metric called the Signal Jaccard Index (SJI). Other tools in the package include SoN (Signal over Noise), which uses spectral clustering to separate signals from noise, and SJINet, which builds a network using the SJI metric. For more details, please see this [reference](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-024-06023-x). 
 
-**Almost all code under my GitHub account is based on vibe coding.**
+**Almost all the code on my GitHub was written through vibe coding.**
